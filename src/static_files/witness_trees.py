@@ -1,0 +1,35 @@
+import json
+
+from rich.progress import (BarColumn, MofNCompleteColumn, Progress, TextColumn,
+                           TimeElapsedColumn)
+
+from src.config import settings
+from src.db_conn import KuzuDB
+
+from .builders.witness import WitnessTreeBuilder
+
+
+def build_witness_trees():
+    dir = settings.STATIC_FILES.joinpath("witness")
+    dir.mkdir(exist_ok=True)
+    with (
+        Progress(
+            TextColumn("{task.description}"),
+            BarColumn(),
+            MofNCompleteColumn(),
+            TimeElapsedColumn(),
+        ) as p,
+        KuzuDB() as db,
+    ):
+        total = len(db.get_rows("MATCH (w:Witness) RETURN w.id"))
+        wtb = WitnessTreeBuilder(db=db)
+        t = p.add_task("Building witness trees", total=total)
+        for wit in wtb.iter_witnesses():
+            json_str = wit.model_dump_json(exclude_unset=True, exclude_none=True)
+            obj = json.loads(json_str)
+            obj = {"type": "witness"} | obj
+            with open(dir.joinpath(f"{wit.id}.json"), "w") as f:
+                json.dump(obj=obj, fp=f, indent=4, ensure_ascii=False)
+            p.advance(t)
+        total_files = len([_ for _ in dir.iterdir()])
+        assert total == total_files
