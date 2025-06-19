@@ -17,12 +17,12 @@ Data pipeline for the LostMa ERC project, which extracts, transforms, and loads 
 ```mermaid
 architecture-beta
     group cloud(server)[Server]
-    service heurist(logos:aws-rds)[Heurist RDBMS] in cloud
-    service api(logos:aws-api-gateway)[Heurist API] in cloud
-    service duckdb(logos:aws-rds)[DuckDB RDBMS] in local
+    service heurist(database)[Heurist RDBMS] in cloud
+    service api(server)[Heurist API] in cloud
+    service duckdb(database)[DuckDB RDBMS] in local
 
     group local(database)[Data Modelling]
-    service kuzu(logos:aws-neptune)[Kuzu GDBMS] in local
+    service kuzu(database)[Kuzu GDBMS] in local
 
     group staticFiles(disk)[Output]
     service witnessTrees(disk)[Witness JSON] in staticFiles
