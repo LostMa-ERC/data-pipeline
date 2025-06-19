@@ -97,11 +97,12 @@ You can run the full workflow or run steps individually, as long as you make sur
 
 - Output:
 
-    - `static/*.json` : 1 JSON file per Witness
+    - `static/*.json` : 1 JSON file per Witness, including the following metadata:
 
         - Witness's metadata
         - Witness's documents
-            - Document's parts
+            - Document's metadata
+            - Document's parts & physical descriptions
             - Document's repository & location
 
 ```shell
