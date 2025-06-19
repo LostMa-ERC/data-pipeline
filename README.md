@@ -11,6 +11,7 @@ Data pipeline for the LostMa ERC project, which extracts, transforms, and loads 
     - [Model as graph](#2-model-as-graph)
     - [Write witnesses to JSON](#3-write-nested-witness-metadata-to-json)
 - [Contributing](./CONTRIBUTING.md)
+- [Acknowledgements](#acknowledgements)
 
 ## Architecture
 
@@ -185,3 +186,7 @@ You can run the full workflow or run steps individually, as long as you make sur
     ]
 }
 ```
+
+## Acknowledgements
+
+Funded by the European Union (ERC, LostMA, 101117408). Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the European Research Council. Neither the European Union nor the granting authority can be held responsible for them.
