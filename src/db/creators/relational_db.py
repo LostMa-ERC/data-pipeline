@@ -2,10 +2,10 @@ from heurist.api.connection import HeuristAPIConnection
 from heurist.workflows.etl import extract_transform_load
 
 from src.config import settings
-from src.db_conn import HeuristDB
+from src.db.connections import HeuristDB
 
 
-def refresh_data(conn: HeuristDB):
+def create_duckdb(conn: HeuristDB):
 
     # Rewrite the tables in the DuckDB database with new data requested from Heurist
     with HeuristAPIConnection(

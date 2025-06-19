@@ -2,11 +2,9 @@ from pathlib import Path
 
 import kuzu
 
-from src.config import settings
-
 
 class KuzuDB:
-    def __init__(self, fp: Path = settings.KUZU_PATH, read_only: bool = False):
+    def __init__(self, fp: Path, read_only: bool = False):
         db = kuzu.Database(database_path=fp, read_only=read_only)
         self.conn = kuzu.Connection(database=db)
 

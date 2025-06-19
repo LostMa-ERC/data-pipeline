@@ -1,6 +1,6 @@
 from typing import Generator
 
-from src.db_conn import KuzuDB
+from src.db.connections import KuzuDB
 from src.models.document import Document
 from src.models.part import Part
 from src.models.place import Place
@@ -26,23 +26,15 @@ class WitnessTreeBuilder:
     def __init__(self, db: KuzuDB):
         self.db = db
 
-    def get_witness(self, witness_id: int = None) -> Witness:
+    def iter_witnesses(self, witness_id: int = None) -> Generator[Witness, None, None]:
         query = self.build_witness_query(witness_id=witness_id)
-        for witness_node, scripta_node in self.db.get_rows(query):
-            return self.model_witness_data(
-                witness_node=witness_node,
-                scripta_node=scripta_node,
-            )
-
-    def iter_witnesses(self) -> Generator[Witness, None, None]:
-        query = self.build_witness_query()
         for witness_node, scripta_node in self.db.get_rows(query):
             yield self.model_witness_data(
                 witness_node=witness_node,
                 scripta_node=scripta_node,
             )
 
-    def get_witness_docs(self, witness_id: int) -> list[Document]:
+    def return_witness_docs(self, witness_id: int) -> list[Document]:
         query = f"""
             MATCH (w:Witness) WHERE w.id = {witness_id}
             MATCH (w)-[:IsMaterializedOn]->(p:Part)
@@ -84,6 +76,6 @@ class WitnessTreeBuilder:
     def model_witness_data(self, witness_node: dict, scripta_node: dict) -> Witness:
         witness_node.update({"scripta": scripta_node})
         witness_id = witness_node["id"]
-        manuscripts = self.get_witness_docs(witness_id=witness_id)
+        manuscripts = self.return_witness_docs(witness_id=witness_id)
         witness_node.update({"manuscripts": manuscripts})
         return Witness.model_validate(witness_node)

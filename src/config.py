@@ -11,7 +11,7 @@ RELATIONAL_DB_PATH = DATABASE_DIR.joinpath("heurist.duckdb")
 GRAPH_DB_PATH = DATABASE_DIR.joinpath("kuzu_db")
 
 # Directory for static files
-STATIC_FILES = Path(__file__).parent.parent.joinpath("public")
+STATIC_FILES = Path(__file__).parent.parent.joinpath("static")
 STATIC_FILES.mkdir(exist_ok=True)
 
 

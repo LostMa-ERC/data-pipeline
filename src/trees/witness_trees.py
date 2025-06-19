@@ -4,12 +4,12 @@ from rich.progress import (BarColumn, MofNCompleteColumn, Progress, TextColumn,
                            TimeElapsedColumn)
 
 from src.config import settings
-from src.db_conn import KuzuDB
+from src.db.connections import KuzuDB
 
 from .builders.witness import WitnessTreeBuilder
 
 
-def build_witness_trees():
+def build_witness_trees(db: KuzuDB):
     dir = settings.STATIC_FILES.joinpath("witness")
     dir.mkdir(exist_ok=True)
     with (
@@ -19,7 +19,6 @@ def build_witness_trees():
             MofNCompleteColumn(),
             TimeElapsedColumn(),
         ) as p,
-        KuzuDB() as db,
     ):
         total = len(db.get_rows("MATCH (w:Witness) RETURN w.id"))
         wtb = WitnessTreeBuilder(db=db)

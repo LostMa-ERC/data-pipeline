@@ -3,9 +3,9 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "api"
+name = "lostma-pipeline"
 version = "0.0.1"
-description = "FastAPI backend of LostMa data"
+description = "ETL and pivot processes for LostMa data pipeline"
 requires-python = ">=3.12"
 license = "MIT"
 
@@ -18,7 +18,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["black>=24.1.0", "isort>=5.13.0", "pytest"]
+dev = ["black>=24.1.0", "isort>=5.13.0", "pytest", "pytest-dependency>=0.6.0"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src"]

@@ -4,7 +4,6 @@ from pydantic import BaseModel, Field
 
 
 class Part(BaseModel):
-    # Properties of the Part node
     id: int
     div_order: int
     number_of_verses: Optional[int] = Field(default=None)
