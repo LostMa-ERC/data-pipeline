@@ -23,6 +23,9 @@ dev = ["black>=24.1.0", "isort>=5.13.0", "pytest", "pytest-dependency>=0.6.0"]
 [tool.hatch.build.targets.wheel]
 packages = ["src"]
 
+[project.scripts]
+lostma = "src.main:cli"
+
 [tool.pytest.ini_options]
 # Ignore the DB tests when running full pytest
 addopts = ["--import-mode=importlib", "-p no:warnings"]
