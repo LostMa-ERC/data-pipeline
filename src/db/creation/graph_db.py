@@ -1,7 +1,7 @@
 from src.db.connections import HeuristDB, KuzuDB
-from src.db.creators.models import edges, nodes
-from src.db.creators.models.edges._base import Base as EdgeBase
-from src.db.creators.models.nodes._base import Base as NodeBase
+from src.db.creation.models import edges, nodes
+from src.db.creation.models.edges._base import Base as EdgeBase
+from src.db.creation.models.nodes._base import Base as NodeBase
 
 NODES: list[NodeBase] = [
     nodes.Storyverse,

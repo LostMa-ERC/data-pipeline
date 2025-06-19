@@ -64,9 +64,9 @@ The trick is naming your test's parameter the name of the fixture function, i.e.
 
 You might want to edit the modelling of the graph database, the process of converting the tabular data to nodes and edges.
 
-This modelling is controlled by Python classes in the directory [`src/db/creators/models`](./src/db/creators/models/).
+This modelling is controlled by Python classes in the directory [`src/db/creation/models`](./src/db/creation/models/).
 
-### [Nodes](./src/db/creators/models/nodes/)
+### [Nodes](./src/db/creation/models/nodes/)
 
 Nodes need data fields (list of `Field` named tuples) and the "from" part of an SQL statement (`_from`), which is used to select the data fields from the relevant table / joined tables in the DuckDB database.
 
@@ -93,14 +93,14 @@ class Genre(Base):
 
 ```
 
-Each node needs to have a field `id`, which the `Base` node class uses to create a primary key. Many Heurist entities' unique IDs are selected in the same way: `Field(column="H-ID", alias="id", type="INT64")`. Therefore, a constant `HID` is made available in the [`nodes/_base`](./src/db/creators/models/nodes/_base.py) module.
+Each node needs to have a field `id`, which the `Base` node class uses to create a primary key. Many Heurist entities' unique IDs are selected in the same way: `Field(column="H-ID", alias="id", type="INT64")`. Therefore, a constant `HID` is made available in the [`nodes/_base`](./src/db/creation/models/nodes/_base.py) module.
 
 
-### [Edges](./src/db/creators/models/edges/)
+### [Edges](./src/db/creation/models/edges/)
 
 In a way, edges are more complex to model than nodes because they can connect multiple pairs of node types. For this reason, the `Base` edge class requires ordered lists for its two attributes: `edges` and `selections`.
 
-Each `Edge` dataclass in the list of `edges` takes (1) the name of the "from" node and (2) the name of the "to" node. Node names are identical to the name of the class used to create the node in [`models/nodes`](./src/db/creators/models/nodes/).
+Each `Edge` dataclass in the list of `edges` takes (1) the name of the "from" node and (2) the name of the "to" node. Node names are identical to the name of the class used to create the node in [`models/nodes`](./src/db/creation/models/nodes/).
 
 Each string in the list of `selections` is a full SQL statement that selects the "from" and "to" data fields to be used for the edges.
 

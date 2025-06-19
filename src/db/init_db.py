@@ -1,8 +1,8 @@
 from src.trees.witness_trees import build_witness_trees
 
 from .connections import HeuristDB, KuzuDB
-from .creators.graph_db import create_kuzudb
-from .creators.relational_db import create_duckdb
+from .creation.graph_db import create_kuzudb
+from .creation.relational_db import create_duckdb
 from pathlib import Path
 
 
