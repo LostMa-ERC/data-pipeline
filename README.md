@@ -32,8 +32,8 @@ architecture-beta
     heurist:R -- L:api
     api:R -- L:duckdb
     duckdb:R -- L:kuzu
-    kuzu:B -- T:witnessTrees
-    kuzu:B -- T:tei
+    kuzu:R -- L:witnessTrees
+    kuzu:R -- L:tei
 
 ```
 
