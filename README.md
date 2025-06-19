@@ -61,7 +61,7 @@ You can run the full workflow or run steps individually, as long as you make sur
 ### Full workflow
 
 ```shell
-
+$ python src/main.py build full
 ```
 
 ### Step by step
@@ -75,6 +75,7 @@ You can run the full workflow or run steps individually, as long as you make sur
     - `databases/heurist.duckdb` : [Duckdb](https://duckdb.org/) relational database
 
 ```shell
+$ python src/main.py build heurist
 ```
 
 #### 2. Model as graph
@@ -88,6 +89,7 @@ You can run the full workflow or run steps individually, as long as you make sur
     - `databases/kuzu_db` : [Kùzu](https://kuzudb.com/) graph database
 
 ```shell
+$ python src/main.py build graph
 ```
 
 #### 3. Write nested `Witness` metadata to JSON
@@ -107,6 +109,7 @@ You can run the full workflow or run steps individually, as long as you make sur
             - Document's repository & location
 
 ```shell
+$ python src/main.py build witness -t json
 ```
 
 ```json

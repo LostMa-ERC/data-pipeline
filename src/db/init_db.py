@@ -1,9 +1,10 @@
+from pathlib import Path
+
 from src.trees.witness_trees import build_witness_trees
 
 from .connections import HeuristDB, KuzuDB
 from .creation.graph_db import create_kuzudb
 from .creation.relational_db import create_duckdb
-from pathlib import Path
 
 
 def init_db(duckdb_path: Path, kuzu_path: Path, databases_only: bool = False) -> None:

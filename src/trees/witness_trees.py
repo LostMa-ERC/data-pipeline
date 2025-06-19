@@ -1,7 +1,12 @@
 import json
 
-from rich.progress import (BarColumn, MofNCompleteColumn, Progress, TextColumn,
-                           TimeElapsedColumn)
+from rich.progress import (
+    BarColumn,
+    MofNCompleteColumn,
+    Progress,
+    TextColumn,
+    TimeElapsedColumn,
+)
 
 from src.config import settings
 from src.db.connections import KuzuDB
@@ -30,5 +35,5 @@ def build_witness_trees(db: KuzuDB):
             with open(dir.joinpath(f"{wit.id}.json"), "w") as f:
                 json.dump(obj=obj, fp=f, indent=4, ensure_ascii=False)
             p.advance(t)
-        total_files = len([_ for _ in dir.iterdir()])
+        total_files = len([f for f in dir.iterdir() if "json" in f.suffix])
         assert total == total_files
