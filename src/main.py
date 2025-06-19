@@ -3,7 +3,7 @@ import click
 from src.config import settings
 from src.db.connections import HeuristDB, KuzuDB
 from src.db.creation import create_duckdb, create_kuzudb
-from src.db import init_db
+from src.db.init_db import init_db
 from src.trees.witness_trees import build_witness_trees
 
 
