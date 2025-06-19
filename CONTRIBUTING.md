@@ -40,7 +40,8 @@ Many tests will require connections to the databases created during the pipeline
 
 ```python
 def test_something_that_needs_graph_db(kuzu_db):
-    # etc.
+    query = "MATCH (w:Witness) RETURN w"
+    query_result = kuzu_db.execute(query)
 ```
 
 This is possible thanks to pytest's `@fixture` feature, which is used in the file [`tests/conftest.py`](./tests/conftest.py) to create a database connection / session at the start of every test suite.
@@ -56,3 +57,5 @@ def kuzu_db() -> Generator[KuzuDB, None, None]:
     with KuzuDB(fp=settings.KUZU_PATH) as db_session:
         yield db_session
 ```
+
+The trick is naming your test's parameter the name of the fixture function, i.e. `kuzu_db`, as it is defined in [`conftest.py`](./tests/conftest.py).
