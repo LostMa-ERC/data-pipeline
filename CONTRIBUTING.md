@@ -4,6 +4,12 @@ Because this pipeline is specially designed for LostMa's data needs, contributio
 
 However, if you would like to contribute to the underlying open-source tool that performs the first step, collecting data from Heurist, see `heurist-api`'s [GitHub repository](https://github.com/LostMa-ERC/heurist-api) for details on contributing.
 
+## Graph solution: [Kùzu](https://kuzudb.com/)
+
+Because the LostMa data is so networked, sometimes it is easier to query as a graph than as relational tables. We've chosen the Graph Database Management System (GBMS) [`Kùzu`](https://kuzudb.com/), which is embedded (like SQLite and DuckDB) and therefore easier to set up and manage.
+
+This young open-source project has good [documentation](https://docs.kuzudb.com/) on their site, as well as a [blog](https://blog.kuzudb.com/). You can also join their [Discord](https://discord.gg/jw7xN2ZhJB) server to pose questions to the maintainers and other users, as well as learn from the discussions others have had there.
+
 ## Set up dev environment
 
 Download an editable version of the project with its development dependencies.
