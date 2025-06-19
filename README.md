@@ -107,3 +107,81 @@ You can run the full workflow or run steps individually, as long as you make sur
 
 ```shell
 ```
+
+```json
+{
+    "type": "witness",
+    "id": 47375,
+    "is_unobserved": false,
+    "is_excerpt": false,
+    "siglum": "Ltk. 195",
+    "alternative_sigla": [],
+    "status": "complete",
+    "creation_date_min": "1326-01-01",
+    "creation_date_max": "1360-12-31",
+    "creation_date_certainty": "2. Probable (33%-66%)",
+    "creation_date_text": "'<=1350'.",
+    "urls": [
+        "https://www.handschriftencensus.de/20258"
+    ],
+    "scripta": {
+        "id": 46312,
+        "name": "Brabants",
+        "description": "Dialect of Brabant.",
+        "urls": []
+    },
+    "manuscripts": [
+        {
+            "id": 47370,
+            "shelfmark": "Ltk. 195",
+            "old_shelfmarks": [],
+            "is_hypothetical": false,
+            "collection_of_fragments": "No",
+            "urls": [
+                "https://www.handschriftencensus.de/20258"
+            ],
+            "witness_parts": [
+                {
+                    "id": 47376,
+                    "div_order": 1,
+                    "number_of_verses": 21844,
+                    "part_of_text": "Full text",
+                    "verses_per_line": "continuous",
+                    "lines_are_incomplete": "No",
+                    "page_ranges": [
+                        "1r-120v"
+                    ],
+                    "has_initials": false,
+                    "has_rubrication": false,
+                    "has_incomplete_decoration": false,
+                    "has_no_decoration": false,
+                    "has_pictorial_designs": false,
+                    "decoration_is_unknown": false
+                }
+            ],
+            "repository": {
+                "id": 43873,
+                "name": "Universitaire Bibliotheken Leiden",
+                "alternative_names": [
+                    "Rijksuniversiteit te Leiden., Bibliotheek",
+                    "Leiden University Library",
+                    "Bibliotheek der Rijksuniversiteit Leiden",
+                    "Universiteitsbibliotheek (Lejda).",
+                    "Universiteitsbibliotheek (Leyde, Pays-Bas)",
+                    "Rijksuniversiteit Leiden Bibliotheek"
+                ],
+                "viaf": "133132602.000000",
+                "isni": "0000000122932800",
+                "settlement": {
+                    "id": 43362,
+                    "name": "Leiden",
+                    "region": "South Holland",
+                    "country": "Netherlands",
+                    "location_mappable": "POINT(4.49306 52.15833)",
+                    "geonames_id": 2751773
+                }
+            }
+        }
+    ]
+}
+```
