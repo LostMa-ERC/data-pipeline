@@ -13,7 +13,7 @@ def init_db(duckdb_path: Path, kuzu_path: Path, databases_only: bool = False) ->
         create_duckdb(conn=dconn)
 
         # Convert the relational database into a Kùzu graph database
-        create_kuzudb(kuzu_db=kdb, heurist_db=dconn)
+        create_kuzudb(kuzu_db=kdb, duckdb_conn=dconn)
 
         if not databases_only:
             # Build static witness trees
