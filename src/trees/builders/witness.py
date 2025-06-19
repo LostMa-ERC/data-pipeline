@@ -62,7 +62,7 @@ class WitnessTreeBuilder:
             # Validate and model the manuscript's parts
             ordered_parts = sorted(
                 [Part.model_validate(p) for p in part_list],
-                key=lambda x: x.div_order,
+                key=lambda x: x.part_order,
                 reverse=False,
             )
             witness_parts = {"witness_parts": ordered_parts}

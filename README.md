@@ -144,7 +144,7 @@ You can run the full workflow or run steps individually, as long as you make sur
             "witness_parts": [
                 {
                     "id": 47376,
-                    "div_order": 1,
+                    "part_order": 1,
                     "number_of_verses": 21844,
                     "part_of_text": "Full text",
                     "verses_per_line": "continuous",

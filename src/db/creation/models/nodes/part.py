@@ -4,7 +4,7 @@ from ._base import Base, Field
 class Part(Base):
     fields = [
         Field(column='pt."H-ID"', alias="id", type="INT64"),
-        Field(column="pt.div_order", alias="div_order", type="INT8"),
+        Field(column="pt.div_order", alias="part_order", type="INT8"),
         Field(column="pt.number_of_verses", alias="number_of_verses", type="INT64"),
         Field(column="pt.part_of_text", alias="part_of_text", type="STRING"),
         Field(column="pt.volume_number", alias="volume_number", type="STRING"),
