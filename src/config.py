@@ -8,7 +8,7 @@ DATABASE_DIR.mkdir(exist_ok=True)
 
 # Paths to the embedded databases
 RELATIONAL_DB_PATH = DATABASE_DIR.joinpath("heurist.duckdb")
-GRAPH_DB_PATH = DATABASE_DIR.joinpath("kuzu_db")
+GRAPH_DB_PATH = DATABASE_DIR.joinpath("kuzu.db")
 
 # Directory for static files
 STATIC_FILES = Path.cwd().joinpath("static")
