@@ -17,6 +17,8 @@ from .builders.witness import WitnessTreeBuilder
 def build_witness_trees(db: KuzuDB):
     dir = settings.STATIC_FILES.joinpath("witness")
     dir.mkdir(exist_ok=True)
+    for file in dir.glob("*.json"):
+        file.unlink()
     with (
         Progress(
             TextColumn("{task.description}"),
