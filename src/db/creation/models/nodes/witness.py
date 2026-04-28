@@ -18,19 +18,19 @@ class Witness(Base):
             type="BOOLEAN",
         ),
         Field(
-            column="date_of_creation.estMinDate",
+            column="date_of_creation.estMinDate.iso",
             alias="creation_date_min",
-            type="STRUCT",
+            type="DATE",
         ),
         Field(
-            column="date_of_creation.estMaxDate",
+            column="date_of_creation.estMaxDate.iso",
             alias="creation_date_max",
-            type="STRUCT",
+            type="DATE",
         ),
         Field(
-            column="date_of_creation.value",
+            column="date_of_creation.value.iso",
             alias="creation_date_year",
-            type="STRUCT",
+            type="DATE",
         ),
         Field(
             column="date_of_creation_certainty",
