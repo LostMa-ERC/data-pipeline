@@ -5,7 +5,7 @@ from pydantic import BaseModel, Field
 
 class Part(BaseModel):
     id: int
-    part_order: int
+    part_order: Optional[int]
     number_of_verses: Optional[int] = Field(default=None)
     part_of_text: Optional[str] = Field(default=None)
     volume_number: Optional[str] = Field(default=None)
