@@ -20,17 +20,17 @@ class Witness(Base):
         Field(
             column="date_of_creation.estMinDate.iso",
             alias="creation_date_min",
-            type="DATE",
+            type="STRING",
         ),
         Field(
             column="date_of_creation.estMaxDate.iso",
             alias="creation_date_max",
-            type="DATE",
+            type="STRING",
         ),
         Field(
             column="date_of_creation.value.iso",
             alias="creation_date_year",
-            type="DATE",
+            type="STRING",
         ),
         Field(
             column="date_of_creation_certainty",
