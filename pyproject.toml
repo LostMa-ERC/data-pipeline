@@ -30,3 +30,6 @@ lostma = "src.main:cli"
 # Ignore the DB tests when running full pytest
 addopts = ["--import-mode=importlib", "-p no:warnings"]
 testspaths = ["tests/"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
